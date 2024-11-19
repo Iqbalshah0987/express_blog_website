@@ -1,0 +1,219 @@
+
+<style>
+    #return-to-top:hover{
+        cursor: pointer;
+    }
+</style>
+<!-- Get Featured -->
+<div id="my_chatbox_help" style="position: fixed; right: 1rem; bottom: 0rem; opacity: 1; z-index: 99999; text-align: center;">
+    <!-- help button -->
+    <a href="https://forms.gle/3cUS9ke5Les38fz67" target="_blank" class="btn btn-default text-white" type="button" style="width: fit-content; position: relative; bottom: 1rem; opacity: 1; border-radius: 200px; padding: 1rem;" onclick="showChatbot();">
+        <span style="font-size: 15px; display: flex; gap: 5px; align-items: center;">
+            <i class="bi bi-pencil" id="close_query"></i>
+            <span id="">Get Featured</span>
+        </span>
+    </a>
+    <!-- help button end -->
+</div>
+
+<!-- footer -->
+<footer>
+    <div class="container-xl">
+        <div class="footer-inner">
+            <div class="row d-flex align-items-center gy-4">
+                <div class="col-md-4">
+                    <span class="copyright">© <%= new Date().getFullYear() %> Jobaaj Stories.</span>
+                </div>
+
+                <div class="col-md-5 text-center">
+                    <ul class="social-icons list-unstyled list-inline mb-0">
+                    <li  class="list-inline-item"><a href="/about">About Us</a></li>
+                    <li class="list-inline-item"><a  href="#"  target="_blank">|</a></li>
+                    <li class="list-inline-item"><a  href="https://www.jobaaj.com/contact-us"  target="_blank">Contact Us</a></li>
+                    <li class="list-inline-item"><a  href="#"  target="_blank">|</a></li>
+
+                    <li class="list-inline-item"><a  href="https://www.jobaaj.com/"  target="_blank">Jobaaj.com</a></li>
+                    <li class="list-inline-item"><a  href="#"  target="_blank">|</a></li>
+
+                    <li class="list-inline-item"><a  href="https://www.linkedin.com/showcase/jobaaj-stories/"  target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li class="list-inline-item"><a  href="https://www.instagram.com/jobaajstories/"  target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a  href="https://www.facebook.com/jobaaj.com95/"  target="_blank"><i class="fab fa-facebook"></i></a></li>
+                </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <a id="return-to-top" class="float-md-end"><i class="icon-arrow-up"></i>Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xl">
+        <div class="footer-inner">
+            <div class="row d-flex align-items-center gy-4">
+                <div class="col-md-6">
+                    <span class="copyright">Our Brands by Nishtya Infotech Private Limited:</span>
+                </div>
+
+            <div class="col-md-12 text-center" style="display:flex;justify-content:space-around;align-items:flex-end">
+        <div class="pro_logo">
+            <a target="_blank" href="https://www.jobaaj.com/"> <img src="https://www.procapitas.com/assets/procapitas/jobaaj.png" style="width: 4rem" alt="jobaaj"/></a>
+        </div>
+        <div class="pro_logo">
+            <a target="_blank" href="https://www.stories.jobaaj.com/"><img src="https://www.procapitas.com/assets/procapitas/logo.png" style="width: 4rem" alt="jobaaj"/></a>
+        </div>
+        <div class="pro_logo">
+            <a target="_blank" href="https://www.jobaajlearnings.com/"><img src="https://www.procapitas.com/assets/procapitas/d-logo.png" alt="" style="width: 8rem"/></a>
+           
+        </div>
+
+        <div class="pro_logo">
+            <a target="_blank" href="https://www.procapitas.com/"><img src="https://www.procapitas.com/assets/procapitas/procapitas.png" alt="" style="width: 3rem"/></a>
+           
+        </div>
+        <div class="pro_logo">
+            <a target="_blank" href="https://www.eshancollege.com/"><img src="https://www.procapitas.com/assets/procapitas/eshan.png" style="width: 4rem" alt=""/></a>
+           
+        </div>
+
+
+     </div>
+    
+
+                
+            </div>
+        </div>
+    </div>
+
+
+</footer>
+
+</div><!-- end site wrapper -->
+
+<!-- search popup area -->
+<div class="search-popup">
+<!-- close button -->
+<button type="button" class="btn-close" aria-label="Close"></button>
+<!-- content -->
+<div class="search-content">
+    <div class="text-center">
+        <h3 class="mb-4 mt-0">
+            Search Anything...!</h3>
+    </div>
+    <!-- form -->
+    <form id="searchForm" class="d-flex search-form" data-action="/search-results">
+        <input id="searchInput" class="form-control me-2" type="search" placeholder="Search and press enter ..." aria-label="Search">
+        <button class="btn btn-default btn-lg" type="submit"><i class="icon-magnifier"></i></button>
+      </form>
+</div>
+</div>
+
+<!-- canvas menu -->
+<div class="canvas-menu d-flex align-items-end flex-column">
+<!-- close button -->
+<button type="button" class="btn-close" aria-label="Close"></button>
+
+<!-- logo -->
+<div class="logo">
+    <!-- <img src="images/logo.svg" alt="Katen" /> -->
+</div>
+
+<!-- menu -->
+<nav>
+    <ul class="vertical-menu">
+        <li class="active">
+            <a href="index.html">Home</a>
+            <ul class="submenu">
+                <li><a href="index.html">Magazine</a></li>
+                <li><a href="personal.html">Personal</a></li>
+                <li><a href="personal-alt.html">Personal Alt</a></li>
+                <li><a href="minimal.html">Minimal</a></li>
+                <li><a href="classic.html">Classic</a></li>
+            </ul>
+        </li>
+        <li><a href="category.html">Lifestyle</a></li>
+        <li><a href="category.html">Inspiration</a></li>
+        <li>
+            <a href="#">Pages</a>
+            <ul class="submenu">
+                <li><a href="category.html">Category</a></li>
+                <li><a href="blog-single.html">Blog Single</a></li>
+                <li><a href="blog-single-alt.html">Blog Single Alt</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- social icons -->
+<ul class="social-icons list-unstyled list-inline mb-0 mt-auto w-100">
+    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+    <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+    <li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
+    <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+</ul>
+</div>
+
+<script>
+    document.getElementById('searchForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+  
+      const inputValue = document.getElementById('searchInput').value.trim().replaceAll(" ", "-");
+  
+      if (inputValue !== '') {
+        const targetUrl = this.getAttribute('data-action');
+        window.location.href = `/search/${encodeURIComponent(inputValue)}`;
+      }
+    });
+
+    document.getElementById('newsletter_form').addEventListener('submit', function (event) {
+      event.preventDefault();
+  
+      const email = document.getElementById('newsletter_sub').value.trim();
+
+        if (email !== "") {
+            console.log(email)
+            fetch(`https://stories.jobaaj.com/files/api/subscribe?email=${email}`)
+            .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+            })
+            .then(data => {
+            if (data.msg === "Success") {
+                document.getElementById('signup_btn').innerHTML = "Subscribed";
+                document.getElementById('newsletter_sub').value = "";
+            } else {
+                document.getElementById('signup_btn').innerHTML = "Already Subscribed";
+                document.getElementById('newsletter_sub').value = "";
+            }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+        } 
+        else {
+            alert("Please Enter Email!");
+        }
+    });
+
+    // back to top
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    const btt = document.querySelector("#return-to-top ")
+    btt.addEventListener("click", topFunction)
+  </script>
+
+<!-- <script>
+    const getImageError = e => { 
+        console.log("on error called")
+        e.currentTarget.src = "images/placeholder.jpg";
+    }
+</script> -->

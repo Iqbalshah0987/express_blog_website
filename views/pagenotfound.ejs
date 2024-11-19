@@ -1,0 +1,149 @@
+<%- include("./partial/header.ejs") %>
+<%- include("./partial/navbar.ejs") %>
+
+
+<style>
+    /* body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    } */
+
+    .main-content {
+        margin-top: 3rem;
+        margin-bottom: 550px;
+    }
+
+    .container-xl {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    
+
+    
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    .col-lg-8 {
+        flex: 0 0 66.6666666667%;
+        max-width: 66.6666666667%;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .page_404 {
+        text-align: center;
+        /* margin-top: 50px; */
+    }
+
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .four_zero_four_bg {
+        background-color: #fff;
+        height: 7.5rem;
+        width: 100%;
+        position: relative;
+    }
+
+    .h1 {
+        font-size: 100px;
+    }
+
+    .contant_box_404 {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .h2 {
+        font-size: 24px;
+    }
+
+    .link_404 {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    .link_404:hover {
+        color: #d9534f;
+    }
+</style>
+<section class="page-header">
+    <div class="container-xl">
+        <div class="text-center">
+            <h1 style="text-align: center; text-transform: capitalize;" class="mt-0 mb-2">
+                <!-- Assuming 'id' is a variable or value available in the context -->
+                404 Page Not Found
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li></li>
+                    <li class="breadcrumb-item">
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <!-- Assuming 'id' is a variable or value available in the context -->
+                        404
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<div class="main-content mt-3">
+    <div class="container-xl">
+       
+
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="page_404">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class=" text-center">
+                                    <div class="four_zero_four_bg">
+                                        <h1 style="font-size: 100px;" class="text-center">404</h1>
+                                    </div>
+                                    <div class="contant_box_404" style="text-align: center;">
+                                        <h3 style="text-align: center;" class="h2">
+                                            Look like you're lost
+                                        </h3>
+                                        <p style="text-align: center;">the page you are looking for not available!</p>
+                                        <a href="/" class="link_404 text-dark">Go to Home</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Sidebar Placeholder - Add your sidebar content or remove this div -->
+           
+
+        </div>
+    </div>
+</div>
+
+<%- include("./partial/footer.ejs") %>
+<%- include("./partial/footer-link.ejs") %>

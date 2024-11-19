@@ -1,0 +1,44 @@
+<div style="margin-top: 20px;" class="section-header">
+    <h3 class="section-title">RUNNING <span style="color: #ff5e75;">FREE </span>⚡ WORKSHOPS ️</h3>
+    <img src="images/wave.svg" class="wave" alt="wave" />
+</div>
+
+<div class="padding-30 rounded bordered">
+    <div class="row gy-5">
+        
+        <% finalObj.workshops.forEach(function(work) { %>
+            <div class="col-sm-6">
+                <div class="post">
+                    <div class="thumb rounded">
+                        <a href="<%= work.url %>" target="_blank" class="category-badge position-absolute"><%= work.title %></a>
+                        <a href="<%= work.url %>" target="_blank">
+                            <div class="inner">
+                                <img src="<%= work.img %>"  alt="post-title" />
+                            </div>
+                        </a>
+                    </div>
+                    <ul class="meta list-inline mt-4 mb-0">
+                        <!-- Add meta details if needed -->
+                    </ul>
+                    <h5 class="post-title mb-3 mt-3"><a href="<%= work.url %>" target="_blank"><%= work.cat %></a></h5>
+                    <p class="excerpt mb-0"><%= work.desc %></p>
+                    <div style="display: block; text-align: right;">
+                        <br/>
+                        <a target="_blank" class="btn btn-primary" href="<%= work.url %>">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <br/>
+    <br/>
+    <div style="text-align: center;">
+        <a style="margin: 0; font-size: 1.1rem; width: 12rem;" class="btn btn-default" target='_blank'
+            href="https://www.jobaajlearnings.com/workshop?utm_source=stories&utm_medium=blogpost&utm_campaign=tracking_workshop">
+            View More
+            <i style="margin-left: 1rem; line-height: 5px; font-size: 0.9rem;" class="icon-arrow-down"></i>
+        </a>
+    </div>
+</div>
+
+<div class="spacer" data-height="50"></div>

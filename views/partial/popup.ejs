@@ -1,0 +1,173 @@
+<style>
+    .popup {
+        display: none;
+    }
+    .popup .popBox {
+    width: 500px;
+    }
+    @media only screen and (max-width: 576px) {
+    .popup .popBox {
+        width: 94%;
+    }
+    .featured-post-lg .post-title {
+        font-size: 15px;
+        line-height: 28px;
+    }
+    .featured-post-lg .thumb .inner {
+        height: 255px;
+    }
+    }
+
+
+
+    .popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(34, 34, 34, 0.365);
+    height: 100%;
+    width: 100%;
+    filter: blur(0px);
+    z-index: 11111111;
+    }
+</style>
+
+<div class="popup">
+    <div
+      class="widget rounded popBox"
+      style="margin: 160px auto; background: white; padding: 0px 24px;"
+    >
+      <span
+        style="float: right; cursor: pointer; margin-right: -12px;"
+        onclick="closePopup()"
+        class="closepopup"
+      >
+        Close
+      </span>
+      <div class="widget-header text-center" style="margin-bottom: 15px;">
+        <img
+          style="width: 150px; margin-left: 18px;"
+          src="images/ads/news.jpeg"
+        />
+        <h3 class="widget-title">Newsletter</h3>
+        <img
+          src="images/wave.svg"
+          class="wave"
+          alt="wave"
+        />
+      </div>
+      <div class="widget-content">
+        <span class="newsletter-headline text-center mb-3">
+          Subscribe to Access our Premium Ebook on Stock Market !
+        </span>
+        <p style="font-size: 12px; text-align: center;">
+          Get the most important financial developments around the world
+          delivered to you in an easy to read and jargon-free format
+        </p>
+        <form style="margin: 10px 40px;">
+          <div class="mb-2">
+            <input
+              class="form-control w-100 text-center"
+              name="email"
+              id="email"
+              placeholder="Email address…"
+              type="email"
+            />
+          </div>
+          <button
+            class="btn btn-default btn-full"
+            type="button"
+            id="signup_btn2"
+          >
+            Sign Me Up!
+          </button>
+        </form>
+        <span class="newsletter-privacy text-center mt-3">
+          Your email is safe with us, we don't spam.
+        </span>
+        <br />
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            showPopup();
+            // console.log("hi pop up")
+        }, 15000);
+        });
+
+    function showPopup() {
+      var popup = document.querySelector('.popup');
+        popup.style.display = 'block';
+    }
+
+    function closePopup() {
+    var popup = document.querySelector('.popup');
+    popup.style.display = 'none';
+    
+    }
+
+    
+
+    document.getElementById('signup_btn2').addEventListener('click', function (event) {
+      event.preventDefault();
+      // alert("hi")
+  
+      const email = document.getElementById('email').value.trim();
+      console.log(email)
+
+
+        if (email !== "") {
+            
+            fetch(`https://stories.jobaaj.com/files/api/subscribe?email=${email}`)
+            
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data)
+            // let expires = new Date();
+            // expires.setTime(expires.getTime() + data.expires_in * 1000);
+            if (data.msg === "Success") {
+            document.getElementById('signup_btn2').textContent = "Subscribed";
+            document.getElementById('email').value = "";
+            } else {
+              document.getElementById('signup_btn2').textContent = "Already Subscribed";
+              document.getElementById('email').value = "";
+            }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+        } 
+        else {
+          alert("Please Enter Email!");
+        }
+    });
+
+    // $(document).ready(function () {
+    //   $('#signup_btn').click(function (event) {
+    //     event.preventDefault();
+    //     alert("hi");
+    //   });
+    // });
+
+  </script>
+
+<script>
+  // const getImageError = event => { 
+  //     console.log("on error called 1")
+  //     console.log(event)
+  //     event.currentTarget.src = "/images/placeholder.jpg";
+  // }
+  $('img').on("error",function(event){
+    // console.log("on error called 1")
+    // console.log(event)
+    event.currentTarget.src = "/images/placeholder.jpg";
+  })
+
+</script>

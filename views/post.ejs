@@ -1,0 +1,482 @@
+<%- include("./partial/header.ejs") %>
+<%- include("./partial/navbar.ejs") %>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7173673170921420" crossorigin="anonymous"></script>
+
+    <!--Schema of Post-->
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org/",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@id": "https://stories.jobaaj.com/",
+                        "name": "Jobaaj Stories",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "https://stories.jobaaj.com/assets/images/logo.png",
+                            "width": 292,
+                            "height": 60
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@id": "<?php echo $actual_link; ?>",
+                        "name": "<?php echo $meta_title; ?>",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "<?php echo $data['thumb']; ?>",
+                            "height": 400,
+                            "width": 800
+                        }
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!--Schema for post-->
+
+    <script data-react-helmet="true" type="application/ld+json">
+        {
+            "@type": "NewsArticle",
+            "dateline": "Bangalore, India",
+            "@context": "http://schema.org",
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "xpath": ["/html/head/title", "/html/head/meta[@name='description']/@content"]
+            },
+            "url": "<?php echo $actual_link; ?>",
+            "name": "<?php echo $meta_title; ?>",
+            "headline": "<?php echo $meta_title; ?>",
+            "alternativeHeadline": "<?php echo $data['post_name']; ?>",
+            "keywords": "<?php echo $data['keyword']; ?>",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "<?php echo $actual_link; ?>"
+            },
+            "image": ["<?php echo $data['thumb']; ?>"],
+            "publisher": {
+                "@type": "Organization",
+                "name": "Jobaaj Stories",
+                "alternateName": ["JobaajStories", "Jobaaj Stories", "Jobaaj Stories Media"],
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://stories.jobaaj.com/assets/images/logo.png",
+                    "width": 292,
+                    "height": 60,
+                    "caption": "Stories Jobaj Media"
+                },
+                "url": "https://stories.jobaaj.com",
+                "sameAs": ["https://www.instagram.com/jobaajstories/", "https://www.linkedin.com/showcase/jobaaj-stories/"]
+            },
+            "description": "<?php echo str_replace('"', '', strip_tags($data['meta'])); ?>",
+            "isPartOf": {
+                "@type": "WebSite",
+                "@id": "https://stories.jobaaj.com/#website",
+                "url": "https://stories.jobaaj.com/",
+                "name": "Jobaaj Stories",
+                "headline": "JobaajStories",
+                "description": "Jobaaj Stories: Where Inspiration Meets Knowledge!",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Jobaaj Stories",
+                    "alternateName": ["JobaajStories", "Jobaaj Stories Pvt Ltd", "Jobaaj Stories"],
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://stories.jobaaj.com/assets/images/logo.png",
+                        "width": 292,
+                        "height": 60,
+                        "caption": "Jobaaj Stories"
+                    },
+                    "url": "https://stories.jobaaj.com"
+                }
+            }
+        }
+        }
+    </script>
+
+<style>
+    .post-content {
+        line-height: 1.8;
+        text-align: justify;
+    }
+    .post-content img{
+        border-radius: 10px;
+    }
+    .post-content table p{
+        text-align: center;
+    }
+    /* .post-content p{
+        margin-bottom: 0;
+    } */
+    .header-default.clone {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #FFF;
+        border-bottom: solid 1px #EBEBEB;
+        right: 0;
+        padding: 0px 0px !important;
+    }
+
+    .tag {
+        color: #8F9BAD;
+        border: solid 1px #EBEBEB;
+        border-radius: 25px;
+        font-size: 13px;
+        display: inline-block;
+        padding: 3px 14px;
+        margin: 4px 2px !important;
+    }
+
+    .btnF {
+        width: fit-content;
+        position: relative;
+        bottom: 1rem;
+        opacity: 1;
+        border-radius: 200px;
+        padding: 1rem;
+    }
+
+    .btnF span {
+        font-size: 15px;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .our-brands {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end
+    }
+
+    #query_for .form-control {
+        width: fit-content;
+    }
+
+    #issue_body {
+        max-height: 550px;
+        overflow: auto;
+    }
+
+    #issue_body h5 {
+        color: rgb(253, 93, 117);
+    }
+
+    .w-1 {
+        width: 4rem;
+    }
+
+    .w-2 {
+        width: 4rem;
+    }
+
+    .bold-head {
+        font-weight: bold;
+        color: rgb(253, 93, 117);
+    }
+
+    .color-head {
+        color: rgb(253, 93, 117);
+    }
+    
+    .widget-title {
+        text-align: left !important;
+    }
+    .imgDesc {
+        width: 100%;
+        text-align: center;
+        display: block;
+        margin-top: .5rem
+    }
+
+
+    .imgDesc p {
+        margin: auto;
+        width: 75%;
+        text-align: center;
+        font-weight: 700;
+        font-style: italic;
+        font-size: .8rem
+    }
+
+    body {
+        height: fit-content;
+    }
+
+    .inner img {
+        height: 56px;
+    }
+
+    .author {
+        width: 40px;
+        padding: 5px 0px;
+        height: 38px;
+        border: 1px solid rgb(224, 224, 224);
+        background: #fff;
+        border-radius: 50%;
+    }
+
+    .chatbox .form-control {
+        padding: 4px 16px;
+    }
+
+    #sandy a {
+        color: #4f58fe;
+    }
+
+    .social-icons a {
+        font-size: 13px;
+    }
+
+    .post .post-format {
+        padding-top: 13px;
+
+    }
+
+    * {
+        text-align: left;
+    }
+
+    .widget-title {
+        text-align: center !important;
+    }
+
+    .burger-menu {
+        display: none !important;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .burger-menu {
+            display: inherit !important;
+        }
+    }
+</style>
+    
+<section class="page-header">
+    <div class="container-xl">
+        <div class="text-center">
+            <h1 style="text-align: center; text-transform: capitalize;" class="mt-0 mb-2">
+                <!-- Assuming 'id' is a variable or value available in the context -->
+                <%= finalObj.postdata.post_title %>
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li></li>
+                    <li class="breadcrumb-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <% if (Object.keys(finalObj.postdata.parent_cat).length != 0) { %>
+                        <li class="breadcrumb-item"><a href="category/<%= finalObj.postdata.parent_cat.slug %>"><%= finalObj.postdata.parent_cat.title %></a></li>
+                    <%} %>
+                    <li class="breadcrumb-item">
+                        <a href="category/<%= finalObj.postdata.cat_slug %>">
+                            <%= finalObj.postdata.cat_title %>
+                          </a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <!-- Assuming 'id' is a variable or value available in the context -->
+                        <%= finalObj.postdata.post_title %>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="main-content" style="height: fit-content;">
+    <div class="container-xl">
+        <div class="row gy-4">
+
+            <div class="col-lg-8">
+                <!-- post single -->
+                <div class="post post-single">
+                    <!-- post header -->
+                    <div class="post-header">
+                        <h1 class="title mt-0 mb-3"><%=finalObj.postdata.post_title %></h1>
+                        <ul class="meta list-inline mb-0">
+                            <li class="list-inline-item"><a>
+                                <img src="https://stories.jobaaj.com/assets/images/favicon.png" class="author" alt="author" />Jobaaj Stories</a></li>
+                            <li class="list-inline-item"><a href="category/<%=finalObj.postdata.cat_slug %>"><%=finalObj.postdata.cat_title %></a></li>
+                            <li class="list-inline-item">Published : <%= finalObj.postdata.published %></li>
+                            <li class="list-inline-item">Last Updated : <%= finalObj.postdata.last_date %></li>
+
+
+                        </ul>
+                    </div>
+                    <!-- featured image -->
+                    <div class="featured-image">
+                        <img style="display: block; border-radius: 10px;" src="<%=finalObj.postdata.thumb %>" alt="post-title" />
+                    </div>
+                    <div class="imgDesc">
+                        <p style="margin-top: -19px;"> <%= finalObj.postdata.meta %></p>
+                    </div>
+                    <br />
+                    <!-- post content -->
+                    <div class="post-content clearfix">
+                        <%- finalObj.postdata.content %>
+
+                    </div>
+
+                    <a href='https://www.jobaajlearnings.com/workshop?utm_source=stories&utm_medium=blogpost&utm_campaign=tracking_workshop' target='_blank'><img style="border-radius: 10px;" src="https://stories.jobaaj.com/assets/offer.jpg" /></a>
+
+                    <br><br>
+
+                    <div>
+                        <ins class="adsbygoogle" style="display:block;text-align:center;height:180px;" data-ad-format="fluid" data-ad-layout-key="in-article" data-ad-client="ca-pub-7173673170921420" data-ad-slot="1363350575"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    </div>
+
+                    <!-- post bottom section -->
+                    <div class="post-bottom">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-md-6 col-12 text-center text-md-start">
+
+                                <%
+                                    if (finalObj.postdata.tags !== '') {
+                                        const tags = finalObj.postdata.tags.split(",");
+
+                                        tags.forEach((tag) => {
+                                            if (tag !== ',' && tag !== '') {
+                                %>
+                                    <a href="/search/<%= tag %>" class="tag">#<%= tag %></a>
+                                <%
+                                            }
+                                        });
+                                    }
+                                %>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <!-- social icons -->
+
+                                <ul class="social-icons list-unstyled list-inline mb-0 float-md-end">
+
+                                    <li class="list-inline-item"><b>Share :</b></li>
+                                    <li class="list-inline-item"><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=https://stories.jobaaj.com/post/<%= finalObj.postdata.post_name %>"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li class="list-inline-item"><a target="_blank" href="http://www.facebook.com/sharer.php?u=https://stories.jobaaj.com/post/<%= finalObj.postdata.post_name %>"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li class="list-inline-item"><a target="_blank" href="http://twitter.com/share?url=https://stories.jobaaj.com/post/<%= finalObj.postdata.post_name %>"><i class="fab fa-twitter"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spacer" data-height="50"></div>
+
+                <div class="spacer" data-height="50"></div>
+
+                <!-- section header -->
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="widget rounded">
+                        <div class="widget-header text-center">
+                            <h3 class="widget-title">Similar Stories</h3>
+                        </div>
+                        <div class="widget-content">
+
+                            <% finalObj.similarStory.forEach(function(story) { %>
+                                <div class="post post-list-sm circle">
+                                    <div class="thumb circle">
+                                        <a href="<%= story.cat_slug %>/<%= story.post_name %>">
+                                            <div class="inner">
+                                                <img class="img" src="<%= story.thumb %>" alt="post-title" />
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="details clearfix">
+                                        <h6 class="post-title my-0"><a href="post/<%= story.cat_slug %>/<%= story.post_name %>"><%= story.post_title %></a></h6>
+                                        <ul class="meta list-inline mt-1 mb-0">
+                                            <li class="list-inline-item"><%= story.last_date %> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            <% }); %>
+                            
+
+                        </div>
+                    </div>
+
+                    <div class="widget rounded">
+                        <ins class="adsbygoogle" style="display:block;" data-ad-format="auto" data-ad-client="ca-pub-7173673170921420" data-ad-slot="7329993128" data-full-width-responsive="true">
+                        </ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                      </div>
+
+                    <%- include("./partial/sidebar.ejs") %>
+                </div>
+            </div>
+               
+            
+        </div>
+    </div>
+</section>
+<%- include("./partial/footer.ejs") %>
+<%- include("./partial/footer-link.ejs") %>
+
+<script>
+    $(document).ready(function() {
+
+        $('.post-content').children().eq(2).after(`
+        <br>
+        <a href='javascript:;' onclick="gameOpen()">
+            <img src="https://stories.jobaaj.com/assets/game-stories.jpeg"/>
+        </a>
+        <br><br>
+        <div style="width:100%;text-align:center;">
+            <iframe src="https://games.jobaaj.com/" id="iframe"  style="border-radius: 1rem;overflow: hidden;display:none;width:100%;max-width:500px;height:650px"></iframe>
+        </div>`);
+
+        $('.post-content').children('p').eq(4).after(`<br><ins class="adsbygoogle"
+                                      style="display:block; text-align:center;"
+                                      data-ad-layout="in-article"
+                                      data-ad-format="fluid"
+                                      data-ad-client="ca-pub-7173673170921420"
+                                      data-ad-slot="7839302854"></ins><br>`);
+        $('.post-content').children('p').eq(9).after(`<br><ins class="adsbygoogle"
+                                            style="display:block; text-align:center;"
+                                            data-ad-layout="in-article"
+                                            data-ad-format="fluid"
+                                            data-ad-client="ca-pub-7173673170921420"
+                                            data-ad-slot="7839302854"></ins><br>`);
+        $('.post-content').children('p').eq(14).after(`<br><ins class="adsbygoogle"
+                                            style="display:block; text-align:center;"
+                                            data-ad-layout="in-article"
+                                            data-ad-format="fluid"
+                                            data-ad-client="ca-pub-7173673170921420"
+                                            data-ad-slot="7839302854"></ins><br>`);
+        $('.post-content').children('p').eq(19).after(`<br><ins class="adsbygoogle"
+                                            style="display:block; text-align:center;"
+                                            data-ad-layout="in-article"
+                                            data-ad-format="fluid"
+                                            data-ad-client="ca-pub-7173673170921420"
+                                            data-ad-slot="7839302854"></ins><br>`);
+        $('.post-content').children('p').eq(24).after(`<br><ins class="adsbygoogle"
+                                            style="display:block; text-align:center;"
+                                            data-ad-layout="in-article"
+                                            data-ad-format="fluid"
+                                            data-ad-client="ca-pub-7173673170921420"
+                                            data-ad-slot="7839302854"></ins><br>`);
+    });
+    // Add a delay before pushing ads to ensure proper initialization
+    setTimeout(function() {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    }, 1000); // Adjust the delay time as needed
+    function gameOpen() {
+        console.log('d');
+        $("#iframe").fadeIn();
+    }
+</script>

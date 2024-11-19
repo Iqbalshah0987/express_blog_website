@@ -1,0 +1,127 @@
+<%- include("./partial/header.ejs") %>
+<%- include("./partial/navbar.ejs") %>
+
+<section class="page-header">
+    <div class="container-xl">
+        <div class="text-center">
+            <h1 style="text-align: center; text-transform: capitalize;" class="mt-0 mb-2">
+                Weekly - Digest
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li></li>
+                    <li class="breadcrumb-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Weekly - Digest
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="main-content" style="height: fit-content;" >
+    <div class="container-xl">
+      <div class="row gy-4">
+        <div class="col-lg-12">
+          <div class="row gy-4">
+            <!-- //TODO: Render blog type 7 -->
+            <% finalObj.weeklydata.forEach(function(blog) { %>
+                <div class="col-sm-4">						
+                    <div class="post post-grid rounded bordered h-100">
+                        <div class="thumb rounded float-none">
+                            <a href="<%= blog.url %>">
+                                <div class="inner">
+                                    <img src="<%= blog.thumb %>" alt="post-title" />
+                                </div>
+                            </a>
+                        </div>
+                        <div class="details">
+                            <ul class="meta list-inline mb-0">
+                                <li class="list-inline-item"><a href="/author"><img src="/images/favicon.png" class="author" alt="author"/>Jobaaj Stories</a></li>
+                                <li class="list-inline-item fw-bold mt-2"><%= blog.date %></li>
+                            </ul>
+                            <h6  class="post-title mb-3 mt-3"><a href="<%= blog.url %>"><%= blog.title %></a></h6>
+                            <p class="excerpt mb-0"><%= blog.content %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+          </div>
+          <br /> <br />
+          
+        </div>
+        <!-- Pagination -->
+        <nav>
+            <% 
+            if (finalObj.page > 1) {
+                prev = `href=${finalObj.curr_url}${finalObj.page - 1}`;
+            } else {
+                prev = 'disabled';
+            }
+        
+            if (finalObj.page < finalObj.number_of_page) {
+                next = `href=${finalObj.curr_url}${finalObj.page + 1}`;
+            } else {
+                next = ' disabled';
+            }
+            %>
+        
+            <ul class="pagination justify-content-center">
+        
+                <li class="page-item">
+                    <a class="page-link" <%= prev %>>
+                        <span aria-hidden="true">
+                            <i class="bi-chevron-double-left small"></i>
+                        </span>
+                    </a>
+                </li>
+        
+                <!-- for start -->
+                <% if (finalObj.page >= 5 &&  (finalObj.page >= finalObj.number_of_page - 2 || finalObj.page >= 5)) { %>
+                    <li class="page-item"><a class="page-link" href="<%= finalObj.curr_url %>1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="<%= finalObj.curr_url %>2">2</a></li>
+                    <li class="page-item disabled"><a class="page-link" href="javascript:;">...</a></li>
+                <% } %>
+        
+                <% initialization = ((finalObj.page + 2 >= finalObj.number_of_page) ? (((finalObj.number_of_page - 2) >= 1) ? (finalObj.number_of_page - 2) : finalObj.page) : finalObj.page);
+                condition = ((finalObj.page == finalObj.number_of_page - 2) ? (finalObj.page + (finalObj.number_of_page - finalObj.page)) : ((finalObj.number_of_page > 3) ? (finalObj.page + 2) : finalObj.number_of_page));
+        
+                for (i = initialization; i <= condition; i++) {
+                    if (i == finalObj.page) {
+                        class_name = "active";
+                    } else {
+                        class_name = '';
+                    }
+                %>
+                    <li class="page-item <%= class_name %>"><a class="page-link" href="<%= finalObj.curr_url %><%= i %>"><%= i %></a></li>
+                <% } %>
+        
+                <!-- for last -->
+                <% if (finalObj.page < finalObj.number_of_page - 2) { %>
+                    <li class="page-item disabled"><a class="page-link" href="javascript:;">...</a></li>
+                    <li class="page-item"><a class="page-link" href="<%= finalObj.curr_url %><%= finalObj.number_of_page %>"><%= finalObj.number_of_page %></a></li>
+                <% } %>
+        
+                <!-- next -->
+                <li class="page-item">
+                    <a class="page-link" <%= next %>>
+                        <span aria-hidden="true">
+                            <i class="bi-chevron-double-right small"></i>
+                        </span>
+                    </a>
+                </li>
+        
+            </ul>
+        </nav>
+        <!-- End Pagination -->
+
+      </div>
+    </div>
+</section>
+
+
+<%- include("./partial/footer.ejs") %>
+<%- include("./partial/footer-link.ejs") %>

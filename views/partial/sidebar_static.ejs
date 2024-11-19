@@ -1,0 +1,95 @@
+
+
+    <!-- widget Explore Topics -->
+    <!-- <div class="widget rounded">
+        <div class="widget-header text-center">
+            <h3 class="widget-title">Explore Topics</h3>
+            <img src="images/wave.svg" class="wave" alt="wave" />
+        </div>
+        <div class="widget-content">
+            <ul class="list">
+              <% finalObj.exploreTopics.forEach(function(topic) { %>
+                <li>
+                  <a href="/category/<%= topic.id %>"><%= topic.title %></a>
+                  <span>(<%= topic.count %>)</span>
+                </li>
+              <% }); %>
+            </ul>
+        </div>
+        
+    </div> -->
+
+    <!-- widget newsletter -->
+    <!-- <div class="widget rounded">
+        <div class="widget-header text-center">
+            <h3 class="widget-title">Newsletter</h3>
+            <img src="images/wave.svg" class="wave" alt="wave" />
+        </div>
+        <div class="widget-content">
+            <span class="newsletter-headline text-center mb-3">Join 70,000 subscribers!</span>
+            <form id="newsletter_form">
+                <div class="mb-2">
+                    <input id="newsletter_sub" class="form-control w-100 text-center" placeholder="Email address…" type="email">
+                </div>
+                <button id="signup_btn" class="btn btn-default btn-full" type="submit">Sign Up</button>
+            </form>
+            <span class="newsletter-privacy text-center mt-3">Your email is safe with us, we don't spam.</span>
+        </div>		
+    </div> -->
+
+    <!-- widget India's Might -->
+    <div class="widget rounded">
+        <div class="widget-header text-center">
+          <h3 class="widget-title">India’s Might!</h3>
+          <img
+            src="/images/wave.svg"
+            class="wave"
+            alt="wave"
+          />
+        </div>
+        <div class="widget-content">
+          <div>
+            <div class="post">
+              <div class="thumb rounded">
+                <a
+                  href=/category/<%= finalObj.sidePost.cat_id %>
+                  class="category-badge position-absolute"
+                >
+                <%= finalObj.sidePost.category %>
+                </a>
+                <a href="<%= finalObj.sidePost.url %>">
+                  <div>
+                    <img src="<%= finalObj.sidePost.thumb %>" alt="post-title" />
+                  </div>
+                </a>
+              </div>
+              <h5 class="post-title mb-0 mt-4">
+                <a href="<%= finalObj.sidePost.url %>">"<%= finalObj.sidePost.title %>"</a>
+              </h5>
+              <ul class="meta list-inline mt-2 mb-0">
+                <li class="list-inline-item">
+                  <Link to="/author">Jobaaj Stories</Link>
+                </li>
+                <li class="list-inline-item">"<%= finalObj.sidePost.date %>"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- widget tags -->
+    <div class="widget rounded">
+        <div class="widget-header text-center">
+            <h3 class="widget-title">Tag Clouds</h3>
+            <img src="images/wave.svg" class="wave" alt="wave" />
+        </div>
+        <div class="widget-content">
+          <a href="/category/learning-resource" class="tag">#learningresource</a>
+          <a href="/category/news-updates" class="tag">#newsupdates</a>
+          <a href="/category/around-the-globe" class="tag">#aroundtheglobe</a>
+          <a href="/category/corporate-stories" class="tag">#corporatestories</a>
+          <a href="/category/quarterly-results" class="tag">#quarterlyresults</a>
+          <a href="/category/entrepreneurial-spirit" class="tag">#entrepreneurialspirit</a>
+          
+        </div>		
+    </div>

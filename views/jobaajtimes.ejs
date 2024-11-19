@@ -1,0 +1,85 @@
+<%- include("./partial/header.ejs") %> <%- include("./partial/navbar.ejs") %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<style>
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+
+</style>
+
+
+	<div class="container">
+		<div class="row mb-4">
+			<div class="col-12">
+				<h1 class="text-center" style="font-family: 'Newsreader'">Jobaaj Times</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-3">
+				<select class="w-100 edition-year" name="year" id="year">
+                    <% finalObj.dir.forEach(function(d) { %>
+                      <option value="<%= d %>"><%= d %></option>
+                    <% }); %>
+                  </select>
+			</div>
+		</div>
+		<div class="row g-5" id="flipbook-container">
+            
+		</div>
+	</div>
+
+
+
+	<%- include("./partial/footer.ejs") %> <%- include("./partial/footer-link.ejs")
+	%>
+
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.edition-year').select2({
+			placeholder: 'Select a Year',
+		});
+
+		function loadFlipbook() {
+			var selectedYear = $("select.edition-year").children("option:selected").val();
+			// console.log("🚀 ~ file: index.php:105 ~ loadFlipbook ~ selectedYear:", selectedYear)
+			$.ajax({
+				url: `https://stories.jobaaj.com/files/api/jobaajtimes_index`,
+				type: 'GET',
+				data: {
+					year: selectedYear
+				},
+				success: function(res) {
+					let dataa = ''
+					res = JSON.parse(res)
+					if (res.length > 0) {
+						// console.log(res)
+						 for (const mag of res) {
+							dataa += `
+							<div class="col-lg-3 col-md-4">
+								<h5 class="">Edition:  <span style="font-weight : 200">${mag.date}</span></h5>
+								<a href=" ${mag.url} %>" class="" style="display: block; box-shadow: 0.5rem 0rem 0.5rem #fff;">
+									<img class="img-fluid" src=" ${mag.imageUrl}" alt="img">
+								</a>
+								</div>
+							`
+						}
+						// console.log(dataa)
+						$('#flipbook-container').html(dataa);
+					}
+				},
+				error: function(error) {
+					console.error("Error loading flipbook content:", error);
+				}
+			});
+		}
+		$("select.edition-year").change(loadFlipbook);
+		loadFlipbook();
+
+	});
+</script>
+
